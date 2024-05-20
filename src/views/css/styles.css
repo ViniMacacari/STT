@@ -1,0 +1,204 @@
+@font-face {
+    font-family: 'Manrope Light';
+    src: url(../../assets/fonts/Manrope/Manrope-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Manrope Regular';
+    src: url(../../assets/fonts/Manrope/Manrope-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Manrope Medium';
+    src: url(../../assets/fonts/Manrope/Manrope-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Manrope SemiBold';
+    src: url(../../assets/fonts/Manrope/Manrope-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Manrope Bold';
+    src: url(../../assets/fonts/Manrope/Manrope-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Manrope ExtraBold';
+    src: url(../../assets/fonts/Manrope/Manrope-ExtraBold.ttf);
+}
+
+html,
+body {
+    background-color: #275d8c;
+
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    font-family: 'Manrope Regular';
+
+    cursor: default;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Divs -> Blocos */
+
+.geral {
+    margin: 0;
+    padding: 0;
+}
+
+.max-height100 {
+    height: 100vh;
+    max-height: 100vh;
+}
+
+/* Divs -> Blocos */
+
+/* Padding e Margin */
+
+h1 {
+    padding: 0;
+    margin: 0;
+}
+
+.padding0 {
+    padding: 0;
+}
+
+.padding10h {
+    padding-top : 10px;
+    padding-bottom : 10px;
+}
+
+.padding40w20h {
+    padding: 20px 40px;
+}
+
+.padding40w10h {
+    padding: 10px 40px;
+}
+
+/* Padding */
+
+/* Centralizar e posições */
+
+.flex {
+    display: flex;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.gap10 {
+    gap: 10px;
+}
+
+.gap40 {
+    gap: 40px;
+}
+
+/* Centralizar e posições */
+
+/* Estilos de Divs */
+
+.border-radius30 {
+    border-radius: 30px;
+}
+
+.opacity0 {
+    opacity: 0;
+}
+
+/* Estilos de Divs */
+
+/* Altura e Largura */
+
+.width100 {
+    width: 100vw;
+}
+
+.width100p {
+    width: 100%;
+}
+
+.width350px {
+    width: 350px;
+}
+
+.width340px {
+    width: 340px;
+}
+
+.height100 {
+    height: 100vh;
+}
+
+.metade {
+    flex: 1;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Altura e Largura */
+
+/* Cores em Classe */
+
+.white {
+    color: white;
+}
+
+.BK-white {
+    background-color: white;
+}
+
+.black {
+    color: black;
+}
+
+.BK-black {
+    background-color: black;
+}
+
+.gray {
+    color: gray;
+}
+
+.BK-df-blue {
+    background-color: rgb(1, 0, 57);
+}
+
+.BK-df-blue-04 {
+    background-color: rgb(1, 0, 57, 0.4);
+}
+
+.df-blue {
+    color: #010039;
+}
+
+/* Cores em Classe */

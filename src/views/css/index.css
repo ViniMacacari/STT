@@ -1,0 +1,29 @@
+#menu {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/img/backgrounds/default.jpg');
+    background-size: cover;
+    background-position: top left;
+
+    gap: 5px;
+
+    font-family: 'Manrope Regular';
+}
+
+@keyframes animate {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+h1, h3 {
+    animation: animate 3s infinite;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "stt",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "STT",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron-packager": "^17.1.2",
+    "fs": "^0.0.1-security",
+    "iconv-lite": "^0.6.3",
+    "mysql": "^2.18.1",
+    "node-audio": "^0.0.10",
+    "path": "^0.12.7",
+    "play-sound": "^1.1.6",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "electron": "^30.0.2"
+  }
+}

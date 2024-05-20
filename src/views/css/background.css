@@ -1,0 +1,5 @@
+body {
+    background-image: url('../../assets/img/backgrounds/default.jpg');
+    background-size: cover; 
+    background-position: top left;
+}

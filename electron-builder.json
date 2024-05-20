@@ -1,0 +1,25 @@
+{
+    "appId": "com.stt.game",
+    "productName": "STT",
+    "directories": {
+        "output": "out"
+    },
+    "files": [
+        "**/*"
+    ],
+    "extraResources": [
+        {
+            "from": "assets",
+            "to": "assets"
+        }
+    ],
+    "mac": {
+        "target": "dmg"
+    },
+    "win": {
+        "target": "nsis"
+    },
+    "linux": {
+        "target": "AppImage"
+    }
+}

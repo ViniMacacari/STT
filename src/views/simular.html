@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/background.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/selecionar-time.css">
+    <script src="./js/jquery-3.7.1.js" defer></script>
+    <script src="./js/escolher-time-competicao.js" defer></script>
+</head>
+
+<body>
+    <div class="flex width100 height100">
+        <div class="metade esquerda st-pai border-radius30"> <!-- Selecionar time -->
+            <div class="st-content center-flex column padding0 width350px">
+                <div class="st-header center-flex padding10h width350px">
+                    <h1 id="nome-time" class="white">Nome do Time</h1>
+                </div>
+                <div class="st-body center-flex row padding40w20h">
+                    <i id="seta-esquerda-body" class="fa-solid fa-play fa-flip-horizontal fa-2xl opacity0" style="color: white"></i>
+                    <img id="time-img" width="100%" src="../assets/teams/0.png" alt="">
+                    <i id="seta-direita-body" class="fa-solid fa-play fa-2xl opacity0" style="color: white"></i>
+                </div>
+                <div class="st-footer center-flex row width350px padding40w10h">
+                    <i id="seta-esquerda-footer" class="fa-solid fa-play fa-flip-horizontal fa-xl opacity0" style="color: white"></i>
+                    <img id="competicao-img" height="100px" alt="">
+                    <i id="seta-direita-footer" class="fa-solid fa-play fa-xl opacity0" style="color: white"></i>
+                </div>
+            </div>
+        </div>
+        <div class="metade direita st-pai">
+
+        </div>
+    </div>
+</body>
+
+</html>

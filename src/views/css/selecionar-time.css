@@ -1,0 +1,34 @@
+.st-pai {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.st-header {
+    background-color: rgb(20, 31, 69, .4);
+}
+
+.st-content {
+    background-color: rgb(20, 31, 69, .2);
+}
+
+.st-body {
+    transition: .2 ease-in-out;
+}
+
+.st-footer img{
+    object-fit: contain;
+    flex-grow: 1
+}
+
+.st-body:hover>#seta-esquerda-body,
+.st-body:hover>#seta-direita-body,
+.st-footer:hover>#seta-esquerda-footer,
+.st-footer:hover>#seta-direita-footer {
+    opacity: 1 !important;
+}
+
+.st-body:hover, .st-footer:hover {
+    background-color: rgb(20, 31, 69, .4);
+}
