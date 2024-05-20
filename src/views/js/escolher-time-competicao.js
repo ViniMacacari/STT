@@ -2,6 +2,7 @@ $(document).ready(function () {
     window.api.consultarCompeticao()
         .then(competicao => {
             if (competicao) {
+                console.log(competicao)
                 definirNaBusca(competicao)
             }
         })
@@ -14,9 +15,11 @@ var idCompeticao = null
 var arrayTimes = []
 
 function definirNaBusca(competicoes) {
-    competicoes = competicoes.filter(comp => comp.tipo_competicao === 1 || comp.tipo_competicao === 5) // Filtrar apenas competicoes de torneio
+    competicoes = competicoes.filter(comp => comp.tipo_competicao == 1 || comp.tipo_competicao == 5) // Filtrar apenas competicoes de torneio
 
     competicoes.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
+
+    console.log(competicoes)
 
     let currentIndex = 0
 
@@ -41,12 +44,15 @@ function definirNaBusca(competicoes) {
         } else {
             currentIndex = 0 // Voltar para o início se atingir o final
         }
+
+        console.log(currentIndex)
+        console.log(competicoes)
         updateImage()
     })
 
     function updateImage() {
         const competicao = competicoes[currentIndex]
-        if (competicao.logo !== 'SEM IMAGEM') {
+        if (competicao.logo != 'SEM IMAGEM') {
             imgElement.src = `../assets/competicoes/${competicao.id}.png`
         } else {
             imgElement.src = `../assets/competicoes/${0}.png` // Definir um placeholder se não houver imagem
@@ -64,15 +70,16 @@ function consultarTimesEm(idCompeticao) {
     window.api.consultarLinkLigas(idCompeticao)
         .then(times => {
             if (times) {
-                const promises = times.map(time => consultarTimes(time.IdTime))
-                // Espera todas as promessas serem resolvidas
-                Promise.all(promises)
-                    .then(() => {
-                        console.log("Array antes da ordenação:", arrayTimes)
+                console.log(times)
+                const ids = times.map(time => time.id_time)
+                // Fazer uma única chamada passando todos os IDs
+                window.api.consultarTimes(ids)
+                    .then(arrayTimes => {
                         arrayTimes = arrayTimes.map(item => ({
                             ...item,
                             nome: String(item.nome)
                         }))
+                        console.log("Array antes da ordenação:", arrayTimes)
                         setTimeout(() => {
                             arrayTimes.sort(function (a, b) {
                                 if (a.nome < b.nome) {
@@ -81,6 +88,7 @@ function consultarTimesEm(idCompeticao) {
                                 if (a.nome > b.nome) {
                                     return 1
                                 }
+                                return 0
                             })
                             console.log("Array depois da ordenação:", arrayTimes)
 
@@ -98,6 +106,7 @@ function consultarTimesEm(idCompeticao) {
             console.error('Erro ao buscar times:', err)
         })
 }
+
 
 function consultarTimes(idTime) {
     window.api.consultarTimes(idTime)
@@ -154,7 +163,7 @@ function definirTimesNaBusca(times) {
 
     function updateImage() {
         const time = times[currentIndex]
-        if (time.logo !== 'SEM IMAGEM') {
+        if (time.logo != 'SEM IMAGEM') {
             imgElement.src = `../assets/teams/${time.id}.png`
             teamName.innerHTML = time.nome
         } else {

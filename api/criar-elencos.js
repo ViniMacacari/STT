@@ -142,7 +142,7 @@ function criarElencos(callback) {
         })
     }
 
-    const tables = ['jogadores', 'times', 'competicoes', 'link_liga_time']
+    const tables = ['jogadores', 'times', 'competicoes', 'times_competicoes']
     let index = 0
 
     function next() {
