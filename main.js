@@ -8,8 +8,6 @@ const consultarCompeticao = require('./api/consultar-competicao')
 const consultarLinkLigas = require('./api/consultar-linkligas')
 const consultarTimes = require('./api/consultar-time')
 
-openDb ()
-
 var mainWindow = null
 
 app.whenReady().then(() => {
@@ -52,7 +50,11 @@ async function createWindow() { // Inicia a Janela
     })
 
     ipcMain.handle('CriarElencos', async () => {
-        return criaElenco.criarElencos()
+        return new Promise((resolve, reject) => {
+            criaElenco.criarElencos(() => {
+                resolve(true);
+            });
+        });
     })
 
     ipcMain.handle('ConsultarJogador', async (event, idJogador) => {

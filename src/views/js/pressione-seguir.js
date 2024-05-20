@@ -14,7 +14,10 @@ $(document).ready(function () {
 })
 
 function criaElenco () { // Cria as configurações de elencos
-    window.api.criarElencos().then(() => {
+    window.api.criarElencos().then((result) => {
+        if (result)
         window.location.href = "home.html"
+    }).catch ((error) => {
+        console.error(error)
     })
 }
