@@ -26,7 +26,7 @@
 - node-audio
 - electron-packager
 
-## Ajudas no entendimento do sistema:
+# Ajudas no entendimento do sistema:
 
 ### Como funciona a dinâmica do funcionamento das criações de elencos?
 - Um elenco é criado somente quando na pasta de documentos do cliente, o arquivo elencos.json não existe ou referencia uma pasta existente no diretório;
