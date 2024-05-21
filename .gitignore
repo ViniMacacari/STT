@@ -1,3 +1,6 @@
 /node_module/
 .env
 node_modules
+copyProject.js
+obfuscator-config.json
+/stt-app-win32-x64/
