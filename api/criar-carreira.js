@@ -4,105 +4,62 @@ const path = require('path')
 const mysql = require('mysql')
 require('dotenv').config()
 
-var time = ''
+const { connectionMySQL } = require('../server/connection')
+
+var time = '' // É A HORA E NÃO O TIME
 
 function criarCarreira() {
     criarJogadores()
 }
 
-function criarJogadores() {
-    const connection = mysql.createConnection({
-        host: process.env.BDHOST,
-        user: process.env.BDUSER,
-        password: process.env.BDPASS,
-        database: process.env.BDDATABASE
-    })
+const criarJogadores = async () => {
+    try {
+        const jogadores = await connectionMySQL(`SELECT * FROM jogadores`)
+        console.log('Resultado:', jogadores)
 
-    connection.connect((err) => {
-        if (err) {
-            console.error('Erro ao conectar ao banco de dados:', err)
-            return
-        }
+        const jsonContent = JSON.stringify(jogadores, null, 2)
 
-        const sql = `select * from jogadores`
+        var time = hora()
 
-        connection.query(sql, (err, rows) => {
+        fs.mkdir(path.join(__dirname, '..', 'config', 'saves', time), { recursive: true }, (err) => { // Cria no formato ddmmyyyyhhmmss
             if (err) {
-                console.error('Erro ao executar a consulta:', err)
+                return console.error(`Erro ao criar a pasta: ${err}`)
+            }
+        })
+
+        var filePath = path.join(__dirname, '..', 'config', 'saves', time, 'jogadores.json')
+
+        fs.writeFile(filePath, jsonContent, 'utf8', (err) => {
+            if (err) {
+                console.error('Erro ao escrever o arquivo:', err)
                 return
             }
-            const jsonContent = JSON.stringify(rows, null, 2)
-            var time = hora()
-
-            fs.mkdir(path.join(__dirname, '..', 'config', 'saves', time), { recursive: true }, (err) => { // Cria no formato ddmmyyyyhhmmss
-                if (err) {
-                    return console.error(`Erro ao criar a pasta: ${err}`)
-                }
-            })
-
-            var filePath = path.join(__dirname, '..', 'config', 'saves', time, 'jogadores.json')
-
-            fs.writeFile(filePath, jsonContent, 'utf8', (err) => {
-                if (err) {
-                    console.error('Erro ao escrever o arquivo:', err)
-                    return
-                }
-            })
-
-            connection.end((err) => {
-                if (err) {
-                    console.error('Erro ao fechar a conexão:', err)
-                    return
-                }
-                console.log('Conexão encerrada com sucesso!')
-            })
-
-            criarTimes(time)
         })
-    })
+
+        criarTimes(time)
+    } catch (error) {
+        console.error('Erro ao obter jogadores:', error)
+    }
 }
 
-function criarTimes(time) {
-    const connection = mysql.createConnection({
-        host: 'stt.mysql.uhserver.com',
-        user: 'sttadmin',
-        password: '27062004@Brasil@',
-        database: 'stt'
-    })
+const criarTimes = async (time) => {
+    try {
+        const times = await connectionMySQL(`SELECT * FROM times`)
+        console.log('Resultado:', times)
 
-    connection.connect((err) => {
-        if (err) {
-            console.error('Erro ao conectar ao banco de dados:', err)
-            return
-        }
+        var jsonContent = JSON.stringify(times, null, 2)
 
-        const sql = `select * from times`
+        var filePath = path.join(__dirname, '..', 'config', 'saves', time, 'times.json')
 
-        connection.query(sql, (err, rows) => {
+        fs.writeFile(filePath, jsonContent, 'utf8', (err) => {
             if (err) {
-                console.error('Erro ao executar a consulta:', err)
+                console.error('Erro ao escrever o arquivo:', err)
                 return
             }
-            var jsonContent = JSON.stringify(rows, null, 2)
-
-            var filePath = path.join(__dirname, '..', 'config', 'saves', time, 'times.json')
-
-            fs.writeFile(filePath, jsonContent, 'utf8', (err) => {
-                if (err) {
-                    console.error('Erro ao escrever o arquivo:', err)
-                    return
-                }
-            })
-
-            connection.end((err) => {
-                if (err) {
-                    console.error('Erro ao fechar a conexão:', err)
-                    return
-                }
-                console.log('Conexão encerrada com sucesso!')
-            })
         })
-    })
+    } catch (error) {
+        console.error('Erro ao obter times:', error)
+    }
 }
 
 function hora() {

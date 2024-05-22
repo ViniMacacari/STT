@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "obfuscate": "node obfuscate.js"
   },
   "keywords": [],
   "author": "STT",
@@ -22,6 +23,7 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "electron": "^30.0.2"
+    "electron": "^30.0.2",
+    "javascript-obfuscator": "^4.1.0"
   }
 }

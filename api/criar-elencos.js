@@ -1,7 +1,8 @@
-const mysql = require('mysql')
 const sqlite3 = require('sqlite3').verbose()
 const path = require('path')
 const fs = require('fs')
+
+const { connectionMySQL } = require('../server/connection')
 
 function getDocumentPath() {
     if (process.platform === 'win32') {
@@ -107,39 +108,14 @@ function criarElencos(callback) {
         })
     }
 
-    function transferTable(tableName, callback) {
-        const connection = mysql.createConnection({
-            host: process.env.BDHOST,
-            user: process.env.BDUSER,
-            password: process.env.BDPASS,
-            database: process.env.BDDATABASE
-        })
-
-        connection.connect((err) => {
-            if (err) {
-                console.error(`Erro ao conectar ao banco de dados MySQL: ${err}`)
-                return
-            }
-
-            const sql = `SELECT * FROM ${tableName}`
-            connection.query(sql, (err, rows) => {
-                if (err) {
-                    console.error(`Erro ao executar a consulta na tabela ${tableName}: ${err}`)
-                    return
-                }
-
-                transferToSQLite(tableName, rows, () => {
-                    connection.end((err) => {
-                        if (err) {
-                            console.error(`Erro ao fechar a conexão MySQL: ${err}`)
-                            return
-                        }
-                        console.log(`Conexão com MySQL fechada para tabela ${tableName}.`)
-                        callback()
-                    })
-                })
-            })
-        })
+    async function transferTable(tableName, callback) {
+        try {
+            const rows = await connectionMySQL(`SELECT * FROM ${tableName}`)
+            transferToSQLite(tableName, rows, callback)
+        } catch (error) {
+            console.error(`Erro ao transferir dados da tabela ${tableName}:`, error)
+            callback()
+        }
     }
 
     const tables = ['jogadores', 'times', 'competicoes', 'times_competicoes']
@@ -181,3 +157,4 @@ function hora() {
 module.exports = {
     criarElencos
 }
+

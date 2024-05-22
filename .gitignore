@@ -4,3 +4,5 @@ node_modules
 copyProject.js
 obfuscator-config.json
 /stt-app-win32-x64/
+obfuscate.js
+/arquivos_ofuscados/
