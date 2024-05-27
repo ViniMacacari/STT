@@ -46,15 +46,19 @@ async function createWindow() { // Inicia a Janela
 
     // Define funções para o HTML
     ipcMain.handle('CriarCarreira', async () => {
-        return criaCarreira.criarCarreira()
+        return new Promise((resolve, reject) => {
+            criaCarreira.criarCarreira(() => {
+                resolve(true)
+            })
+        })
     })
 
     ipcMain.handle('CriarElencos', async () => {
         return new Promise((resolve, reject) => {
             criaElenco.criarElencos(() => {
-                resolve(true);
-            });
-        });
+                resolve(true)
+            })
+        })
     })
 
     ipcMain.handle('ConsultarJogador', async (event, idJogador) => {

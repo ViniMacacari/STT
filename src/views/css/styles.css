@@ -77,8 +77,8 @@ h1 {
 }
 
 .padding10h {
-    padding-top : 10px;
-    padding-bottom : 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .padding40w20h {
@@ -147,6 +147,10 @@ h1 {
     width: 100%;
 }
 
+.width200px {
+    width: 200px;
+}
+
 .width350px {
     width: 350px;
 }
@@ -170,7 +174,7 @@ h1 {
 /* Cores em Classe */
 
 .white {
-    color: white;
+    color: white !important;
 }
 
 .BK-white {
@@ -202,3 +206,34 @@ h1 {
 }
 
 /* Cores em Classe */
+
+/* Elementos padrão (button, input, etc) */
+
+.input {
+    all: unset;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background-color: transparent;
+}
+
+input:disabled {
+    background-color: white !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
+}
+
+/* Remover o ícone de calendário do Edge */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+
+/* Elementos padrão (button, input, etc) */

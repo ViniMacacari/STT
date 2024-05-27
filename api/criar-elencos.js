@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose()
 const path = require('path')
 const fs = require('fs')
 
-const { connectionMySQL } = require('../server/connection')
+const { connectionMySQL } = require('../database/connection')
 
 function getDocumentPath() {
     if (process.platform === 'win32') {
@@ -118,7 +118,7 @@ function criarElencos(callback) {
         }
     }
 
-    const tables = ['jogadores', 'times', 'competicoes', 'times_competicoes']
+    const tables = ['jogadores', 'times', 'competicoes', 'times_competicoes', 'paises']
     let index = 0
 
     function next() {
@@ -157,4 +157,3 @@ function hora() {
 module.exports = {
     criarElencos
 }
-

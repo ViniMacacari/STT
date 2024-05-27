@@ -25,6 +25,8 @@
 - dotenv
 - node-audio
 - electron-packager
+- express
+- os
 
 # Ajudas no entendimento do sistema:
 

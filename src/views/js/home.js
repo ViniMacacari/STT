@@ -4,4 +4,10 @@ $(document).ready(function() {
             window.location.href = 'simular.html'
         }, 1000)
     })
+
+    $('#criar-carreira').on('click', () => {
+        window.api.criarCarreira().then(() => {
+            console.log('funfou')
+        })
+    })
 })
