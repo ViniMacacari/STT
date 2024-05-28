@@ -1,6 +1,7 @@
 // Soccer Touchline Tactician -> Electron
 const { app, BrowserWindow, ipcMain, contextBridge } = require('electron')
 const path = require('path')
+const { rotas } = require('./server/server') // Servidor express
 const criaCarreira = require('./api/criar-carreira')
 const criaElenco = require('./api/criar-elencos')
 const consultarJogador = require('./api/consultar-jogador')
@@ -12,6 +13,11 @@ var mainWindow = null
 
 app.whenReady().then(() => {
     createWindow()
+    rotas().then(() => {
+        console.log('Servidor inicializado com sucesso.')
+    }).catch(err => {
+        console.error('Erro ao inicializar o servidor:', err)
+    })
 })
 
 app.on('activate', () => { // Para macOs

@@ -235,5 +235,40 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+.datalist-container {
+    position: relative;
+    width: 200px;
+}
+
+.datalist {
+    position: absolute;
+    top: calc(100% + 2px); /* Ajusta para aparecer logo abaixo do input */
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1000;
+    display: none;
+}
+
+.datalist li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.datalist li:hover {
+    background-color: #f0f0f0;
+}
+
+.hidden-datalist {
+    display: none;
+}
+
+.visible-datalist {
+    display: block;
+}
 
 /* Elementos padrão (button, input, etc) */
