@@ -10,13 +10,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/background.css">
-    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/criar-carreira.css">
     <script src="./js/jquery-3.7.1.js" defer></script>
     <script src="./js/blockelement.js" defer></script>
     <script src="./js/criar-carreira/nacionalidade.js" defer></script>
+    <script src="./js/criar-carreira/geral.js" defer></script>
 </head>
 
 <body>
+    <div id="div-prosseguir" class="center-flex row absolute-top-center p7">
+        <i class="fa-solid fa-arrow-right white"></i>
+    </div>
     <div id="info-tecnico" class="center-flex column width100 height100">
         <div id="box-info-tecnico" class="center-flex column gap10">
             <label for="input-nome-tecnico" class="white">Nome do Técnico</label>
@@ -26,11 +30,16 @@
             <input type="text" name="input-data-tecnico" id="input-data-tecnico" class="input white w200px">
 
             <label for="input-nacionalidade-carreira" class="white">Nacionalidade</label>
-            <!-- <input type="list" name="input-nacionalidade-carreira" id="input-nacionalidade-carreira" class="input white w200px"> -->
             <div class="datalist-container">
                 <input type="text" name="input-nacionalidade-carreira" id="input-nacionalidade-carreira" class="input white w200px">
-                <ul id="list-nacionalidades" class="datalist hidden-datalist"></ul>
+                <ul id="list-nacionalidades" class="datalist hidden-datalist">
+
+                </ul>
             </div>
+        </div>
+    </div>
+    <div id="main-container" class="display-none">
+        <div id="aparencia-tecnico" class="center-flex column width100 height100">
         </div>
     </div>
 </body>

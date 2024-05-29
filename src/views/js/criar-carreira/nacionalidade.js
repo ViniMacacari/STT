@@ -10,10 +10,28 @@ $(document).ready(() => {
             const input = document.getElementById('input-nacionalidade-carreira')
             const datalist = document.getElementById('list-nacionalidades')
 
+            // Função para exibir todos os itens no datalist
+            function showAllItems() {
+                datalist.innerHTML = ''
+                data.forEach(item => {
+                    const option = document.createElement('li')
+                    option.textContent = item.nome
+                    option.addEventListener('mousedown', (event) => {
+                        event.preventDefault() // Evita a perda de foco no input
+                        input.value = item.nome
+                        input.blur() // Desfoca o input
+                        datalist.classList.add('hidden-datalist')
+                        datalist.classList.remove('visible-datalist')
+                    })
+                    datalist.appendChild(option)
+                })
+            }
+
             // Sempre mostrar a lista ao focar no input
             input.addEventListener('focus', () => {
                 datalist.classList.add('visible-datalist')
                 datalist.classList.remove('hidden-datalist')
+                showAllItems()
             })
 
             // Filtrar e exibir a lista enquanto o usuário digita
@@ -29,6 +47,7 @@ $(document).ready(() => {
                         option.addEventListener('mousedown', (event) => {
                             event.preventDefault() // Evita a perda de foco no input
                             input.value = item.nome
+                            input.blur() // Desfoca o input
                             datalist.classList.add('hidden-datalist')
                             datalist.classList.remove('visible-datalist')
                         })

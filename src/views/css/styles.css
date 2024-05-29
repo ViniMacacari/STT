@@ -76,6 +76,10 @@ h1 {
     padding: 0;
 }
 
+.p7 {
+    padding: 7px;
+}
+
 .padding10h {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -121,6 +125,21 @@ h1 {
 
 .gap40 {
     gap: 40px;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.absolute-top-center {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Centralizar e posições */
@@ -241,14 +260,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .datalist {
+    padding: 0;
+    list-style-type: none;
     position: absolute;
     top: calc(100% + 2px); /* Ajusta para aparecer logo abaixo do input */
     left: 0;
     right: 0;
     max-height: 200px;
     overflow-y: auto;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: rgb(31, 64, 117, .3);
+    border: 1px solid #1F4075;
+    color: #f0f0f0;
     border-radius: 4px;
     z-index: 1000;
     display: none;
@@ -257,10 +279,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .datalist li {
     padding: 8px;
     cursor: pointer;
+    color: #f0f0f0;
 }
 
 .datalist li:hover {
-    background-color: #f0f0f0;
+    background-color: rgb(31, 64, 117, .5);
 }
 
 .hidden-datalist {
@@ -271,4 +294,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: block;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Fundo invisível */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1e1c62; /* Cor da barra de rolagem */
+    border-radius: 10px;
+}
+
 /* Elementos padrão (button, input, etc) */
+
+/* Outros */
+
+.scrollnone {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
