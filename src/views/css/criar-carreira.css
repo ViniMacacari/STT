@@ -1,27 +1,30 @@
-/* Contêiner principal para centralizar a grade no meio da tela */
 #main-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Altura total da tela */
+    height: 100vh;
 }
 
-/* Contêiner da grade para as imagens */
 #aparencia-tecnico {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-    grid-auto-rows: 100px; /* Altura das linhas */
-    gap: 10px; /* Espaçamento entre as imagens */
-    overflow-y: auto; /* Habilitar rolagem vertical */
-    max-height: 500px; /* Altura máxima do contêiner para permitir a rolagem */
-    padding: 10px; /* Espaçamento interno */
-    align-items: start; /* Alinha os itens ao topo da grade */
-    justify-items: center; /* Centraliza os itens horizontalmente */
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 100px;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 500px;
+    padding: 10px;
+    align-items: start;
+    justify-items: center;
 }
 
 .escolha-tecnico {
     width: 100px;
     height: 100px;
     cursor: pointer;
-    object-fit: cover; /* Garantir que a imagem ocupe o espaço definido */
+    padding: 2px;
+    object-fit: cover;
+}
+
+#div-prosseguir {
+    cursor: pointer;
 }

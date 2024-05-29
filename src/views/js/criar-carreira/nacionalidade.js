@@ -60,11 +60,18 @@ $(document).ready(() => {
                 }
             })
 
-            // Esconder a lista quando o input perder o foco
+            // Esconder a lista quando o input perder o foco e validar o valor
             input.addEventListener('blur', () => {
                 setTimeout(() => {
                     datalist.classList.add('hidden-datalist')
                     datalist.classList.remove('visible-datalist')
+                    
+                    // Verificar se o valor do input está na lista de nacionalidades
+                    const value = input.value
+                    const isValid = data.some(item => item.nome === value)
+                    if (!isValid) {
+                        input.value = '' // Limpar o valor se não for válido
+                    }
                 }, 100)
             })
         })

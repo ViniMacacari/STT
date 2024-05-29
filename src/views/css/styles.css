@@ -224,6 +224,11 @@ h1 {
     color: #010039;
 }
 
+.selected {
+    box-shadow: 0 0 15px 5px green;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
 /* Cores em Classe */
 
 /* Elementos padrão (button, input, etc) */

@@ -25,12 +25,12 @@ app.on('activate', () => { // Para macOs
 })
 
 async function createWindow() { // Inicia a Janela
-    const minWidth = 800
-    const minHeight = 600
+    const minWidth = 1270
+    const minHeight = 720
 
     mainWindow = new BrowserWindow({
-        width: Math.max(minWidth, 800),
-        height: Math.max(minHeight, 600),
+        width: Math.max(minWidth, 1270),
+        height: Math.max(minHeight, 720),
         icon: path.join(__dirname, 'src', 'assets', 'img', 'logoSTT', 'logoSTT.ico'),
         // fullscreen: true,
         webPreferences: {
