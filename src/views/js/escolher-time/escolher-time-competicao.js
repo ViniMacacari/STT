@@ -163,6 +163,7 @@ function definirTimesNaBusca(times) {
 
     function updateImage() {
         const time = times[currentIndex]
+        sessionStorage.setItem('time', JSON.stringify(time.id))
         if (time.logo != 'SEM IMAGEM') {
             imgElement.src = `../assets/teams/${time.id}.png`
             teamName.innerHTML = time.nome
