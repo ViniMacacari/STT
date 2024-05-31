@@ -6,12 +6,11 @@ $(document).ready(() => {
 })
 
 const configurarCliqueImagem = () => {
-    $('#aparencia-tecnico').on('click', 'img', function() {
+    $('#aparencia-tecnico').on('click', 'img', function () {
         $('#aparencia-tecnico img').removeClass('selected')
         $(this).addClass('selected')
     })
 }
-
 
 const formataCampos = () => {
     $('#input-data-tecnico').on('input', () => {
@@ -31,16 +30,33 @@ const formataCampos = () => {
 }
 
 var continuar = 0
+var imagem
 const prosseguir = () => {
     $('#div-prosseguir').on('click', () => {
+        console.log(continuar)
         if (continuar == 0) {
+            console.log('prosseguir0')
             if ($('#input-nome-tecnico').val().length > 5 && $('#input-data-tecnico').val().length == 4 && $('#input-nacionalidade-carreira').val().length > 0) {
                 continuar++;
+                console.log('prosseguiu')
                 $('#info-tecnico').addClass('display-none')
-                $('#main-container').removeClass('display-none')  
+                $('#main-container').removeClass('display-none')
 
                 $('#txt-nome-tecnico').text(`${$('#input-nome-tecnico').val()}, escolha o rosto do seu técnico:`)
             }
+        } else if (continuar == 1) {
+            console.log('prosseguir1')
+            const dados = {
+                nome: $('#input-nome-tecnico').val(),
+                nascimento: $('#input-data-tecnico').val(),
+                nacionalidade: $('#input-nacionalidade-carreira').val(),
+                fotoTecnico: imagem
+            }
+
+            sessionStorage.setItem('evento', 'criar-carreira')
+            sessionStorage.setItem('tecnico', JSON.stringify(dados))
+
+            window.location.href = './escolher-time.html'
         }
     })
 }
@@ -54,5 +70,6 @@ const preencherImagens = () => {
         img.src = `../assets/img/tecnicos_generic/${i}.jpeg`
         img.classList.add('escolha-tecnico', 'rosto-tecnico')
         container.appendChild(img)
+        imagem = i
     }
 }

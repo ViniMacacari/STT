@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#simular-partida').on('click', () => {
         setTimeout(() => {
-            window.location.href = 'simular.html'
+            window.location.href = 'escolher-time.html'
         }, 1000)
     })
 
